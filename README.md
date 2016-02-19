@@ -1,5 +1,22 @@
 # Primer domače naloge napisane v Octave
 
+[![Build Status](https://travis-ci.org/mrcinv/primer-octave.svg?branch=master)](https://travis-ci.org/mrcinv/primer-octave)
+
+## Kakšna naj bo rešitev naloge
+
+Oddana rešitev naj vsebuje več kot zgolj kodo, rezultate in nekaj besed. Rešitev naj bo samostojen dokument, ki naj bo razumljiv tudi, če nikoli nismo videli besedila naloge. Mislite si, da pišete članek za revijo, npr. Presek ali pa Frik.
+Nekaj opornih točk, kaj naj vsebuje rešitev:
+
+* Ime in priimek avtorjev, datum, predmet
+* Opis problema
+* opis in morebitna izpeljava matematičnega modela
+* Opis programske kode, katere numerične metode uporabimo, morebitna izpeljava formul
+* Rezultati in komentarji rezultatov
+* Razdelitev dela v skupini (če gre za skupinsko nalogo)
+*  Reference in dejanska koda
+
+Prve tri točke so lahko bolj ali manj povzete iz besedila naloge, vendar ne dobesedno. Besedilo naj bo tekoče in naj ima rep in glavo. Nivo besedila naj bo primeren za vaše kolege. V referencah navedite vse vire, ki ste jih uporabili ali se vam zdijo relevantni (če se vam ne zdi primerno preveč razlagati o neki numerični metodi, navedite vir, kjer lahko bralec zve več o tem).
+
 ## Primer: Presečišče dveh premic
 
 **Naloga**: Napiši program, ki poišče presečišče dve premic v ravnini.

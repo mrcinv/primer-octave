@@ -89,7 +89,7 @@ V datoteko s funkcijo `presecisce.m` lahko tudi vstavimo en ali več primerov up
 %!demo
 ````
 Uporabniku se primer izpiše, če uporabi ukaz `example <ime_funkcije>`. 
-````
+````octave
 %!demo
 %! disp("Presečišče premice y = x+1 in y = -x-1")
 %! p = [-1 1 -1];
@@ -106,7 +106,7 @@ Uporabniku se primer izpiše, če uporabi ukaz `example <ime_funkcije>`.
 ```
 Kodo lahko tudi poženemo z ukazom `demo <ime_funkcije>`. Pri tem se izpiše celotna demo koda in vsi rezultati poleg tega se pa izriše še graf:
 
-```` octave
+````
 >> demo presecisce
 presecisce example 1:
  p = [-1 1 -1];

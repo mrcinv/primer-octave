@@ -53,7 +53,7 @@ Primer glave z dokumentacijo za funkcijo `presecisce`
 function T=presecisce(p,q)
 ````
 
-K dokumentaciji spada tudi kratek [Opis rešitve problema](Resitev.md) in [navodila za uporabo programa](#primer-uporabe).
+K dokumentaciji spada tudi kratek [Opis rešitve problema](Resitev.pdf) in [navodila za uporabo programa](#primer-uporabe-programa).
 
 ## Testi
 Teste je za matematične naloge super lahko pisati. Brez testov se bomo težko prepričali, da naš program dela pravilno. Pa še hrošče nam pomagajo poloviti, preden jih vidijo asistenti.

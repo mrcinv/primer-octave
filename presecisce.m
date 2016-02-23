@@ -31,15 +31,16 @@ endfunction
 %!error presecisce([1,1,1],[1,1,2]) 
 
 %!demo
-%! disp("Presečišče premice y = x+1 in y = -x-1")
 %! p = [-1 1 -1];
 %! q = [1 1 1];
-%! T = presecisce(p,q);
-%! printf("Presečišče je točka T(%d,%d)\n", T)
+%! T = presecisce(p,q)
 %! x = T(1)+[-1,1];
 %! plot(x,x+1,x,-x-1)
 %! hold on
 %! plot(T(1),T(2),'o')
+%! title("Presečišče premice y = x+1 in y = -x-1")
+%! hold off
 %! # --------------------------------------------
 %! # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
 %! # ukazov disp ali printf za sporočila uporabniku
+%! # Točka T je presečišče: 

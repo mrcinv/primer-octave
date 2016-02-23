@@ -40,3 +40,6 @@ endfunction
 %! plot(x,x+1,x,-x-1)
 %! hold on
 %! plot(T(1),T(2),'o')
+%! # --------------------------------------------
+%! # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
+%! # ukazov disp ali printf za sporočila uporabniku

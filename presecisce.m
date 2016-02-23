@@ -1,5 +1,7 @@
-% Izračuna presečišče dveh premic p in q
-% podanih s koeficienti a,b,c implicitne enačbe
+% Funkcija T = presecisce(p,q)
+%
+% Izračuna koordinate presečišča T dveh premic p in q,
+% ki sta podani s koeficienti a,b,c implicitne enačbe
 % 
 % ax + by + c = 0
 % 
@@ -15,12 +17,17 @@ function T = presecisce(p,q)
 endfunction
 
 % testi
-
+%!test presecisce([0,1,1],[1,0,1]) == -[1;1];
+% enakovredno
 %!assert (presecisce([0,1,1],[1,0,1]), -[1;1])
-%!assert (presecisce([2,1,1],[1,2,1]), -[1;1]/3, eps)
-%!assert (presecisce([1,2,1],[2,1,1]), -[1;1]/3, eps)
-% test na random podatkih
 
+% zaradi zaokrožitvenih napak dve števili tipa float
+% skoraj nikoli nista enaki, zato moramo vrednosti primerjati z neko toleranco
+%!test abs(presecisce([2,1,1],[1,2,1])-(-[1;1]/3)) < eps;
+% lahko uporabimo tudi assert s tretjim argumentom
+%!assert (presecisce([1,2,1],[2,1,1]), -[1;1]/3, eps)
+
+% test na random podatkih
 %!test
 %! p = rand(1,3); q = rand(1,3);
 %! T = presecisce(p,q);

@@ -104,4 +104,27 @@ Uporabniku se primer izpiše, če uporabi ukaz `example <ime_funkcije>`.
 %! # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
 %! # ukazov disp ali printf za sporočila uporabniku
 ```
-Kodo lahko tudi poženemo z ukazom `demo <ime_funkcije>`.
+Kodo lahko tudi poženemo z ukazom `demo <ime_funkcije>`. Pri tem se izpiše celotna demo koda in vsi rezultati poleg tega se pa izriše še graf:
+
+```` octave
+>> demo presecisce
+presecisce example 1:
+ p = [-1 1 -1];
+ q = [1 1 1];
+ T = presecisce(p,q)
+ x = T(1)+[-1,1];
+ plot(x,x+1,x,-x-1)
+ hold on
+ plot(T(1),T(2),'o')
+ title("Presečišče premice y = x+1 in y = -x-1")
+ hold off
+ # --------------------------------------------
+ # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
+ # ukazov disp ali printf za sporočila uporabniku
+ # Točka T je presečišče: 
+
+T =
+
+  -1
+   0
+````

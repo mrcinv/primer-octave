@@ -53,7 +53,7 @@ Primer glave z dokumentacijo za funkcijo `presecisce`
 function T=presecisce(p,q)
 ````
 
-K dokumentaciji spada tudi kratek [Opis rešitve problema](Resitev.md) in [navodila za uporabo programa](Tutorial.md).
+K dokumentaciji spada tudi kratek [Opis rešitve problema](Resitev.md) in [navodila za uporabo programa](#primer-uporabe).
 
 ## Testi
 Teste je za matematične naloge super lahko pisati. Brez testov se bomo težko prepričali, da naš program dela pravilno. Pa še hrošče nam pomagajo poloviti, preden jih vidijo asistenti.
@@ -82,3 +82,26 @@ Teste poženemo z ukazom `test <ime_funkcije>`
 PASSES 5 out of 5 tests
 >>
 ````
+## Primer uporabe programa
+
+V datoteko s funkcijo `presecisce.m` lahko tudi vstavimo en ali več primerov uporabe, tako da uporabimo vrstico s komentarjem
+````
+%!demo
+````
+Uporabniku se primer izpiše, če uporabi ukaz `example <ime_funkcije>`. 
+````
+%!demo
+%! disp("Presečišče premice y = x+1 in y = -x-1")
+%! p = [-1 1 -1];
+%! q = [1 1 1];
+%! T = presecisce(p,q);
+%! printf("Presečišče je točka T(%d,%d)\n", T)
+%! x = T(1)+[-1,1];
+%! plot(x,x+1,x,-x-1)
+%! hold on
+%! plot(T(1),T(2),'o')
+%! # --------------------------------------------
+%! # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
+%! # ukazov disp ali printf za sporočila uporabniku
+```
+Kodo lahko tudi poženemo z ukazom `demo <ime_funkcije>`.

@@ -4,7 +4,7 @@
 
 ## Kakšna naj bo rešitev naloge
 
-Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak dober projekt še vsaj dve stvari
+Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak dober projekt še vsaj tri stvari
  * [Opis rešitve](#rešitev)
  * [dokumentacijo](#dokumentacija)
  * [teste](#testi)
@@ -14,7 +14,7 @@ Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak do
 **Naloga**: Napiši program, ki poišče presečišče dve premic v ravnini.
 
 ## Rešitev
-Opis rešitve naj vsebuje matematične izpeljave in račune, ki so vas pripeljale do rešitve. Poleg tega navedite, katere algoritme ste uporabili in obrazložite zakaj.
+Opis rešitve naj vsebuje matematične izpeljave in račune, ki so vas pripeljale do rešitve. Poleg tega navedite, katere algoritme ste uporabili in obrazložite zakaj. Lahko je natipkan v obliki datoteke README, ali pa čitljivo na roke napisan in poskeniran dokument.
 
 ## Dokumentacija
 
@@ -75,7 +75,7 @@ Teste poženemo z ukazom `test <ime_funkcije>`.
 
 ````
 >> test presecisce
-PASSES 5 out of 5 tests
+PASSES 6 out of 6 tests
 >>
 ````
 

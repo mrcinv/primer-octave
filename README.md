@@ -4,37 +4,27 @@
 
 ## Kakšna naj bo rešitev naloge
 
-Oddana rešitev naj vsebuje več kot zgolj kodo, rezultate in nekaj besed. Rešitev naj bo samostojen dokument, ki naj bo razumljiv tudi, če nikoli nismo videli besedila naloge. Mislite si, da pišete članek za revijo, npr. Presek ali pa Frik.
-Nekaj opornih točk, kaj naj vsebuje rešitev:
+Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak dober projekt še vsaj dve stvari
+ * [Opis rešitve](#rešitev)
+ * [dokumentacijo](#dokumentacija)
+ * [teste](#testi)
 
-* Ime in priimek avtorjev, datum, predmet
-* Opis problema
-* opis in morebitna izpeljava matematičnega modela
-* Opis programske kode, katere numerične metode uporabimo, morebitna izpeljava formul
-* Rezultati in komentarji rezultatov
-* Razdelitev dela v skupini (če gre za skupinsko nalogo)
-*  Reference in dejanska koda
-
-Prve tri točke so lahko bolj ali manj povzete iz besedila naloge, vendar ne dobesedno. Besedilo naj bo tekoče in naj ima rep in glavo. Nivo besedila naj bo primeren za vaše kolege. V referencah navedite vse vire, ki ste jih uporabili ali se vam zdijo relevantni (če se vam ne zdi primerno preveč razlagati o neki numerični metodi, navedite vir, kjer lahko bralec zve več o tem).
-
-## Primer: Presečišče dveh premic
+# Primer: Presečišče dveh premic
 
 **Naloga**: Napiši program, ki poišče presečišče dve premic v ravnini.
 
 ## Rešitev
-
-Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak dober projekt še vsaj dve stvari
- * dokumentacijo
- * teste
+Opis rešitve naj vsebuje matematične izpeljave in račune, ki so vas pripeljale do rešitve. Poleg tega navedite, katere algoritme ste uporabili in obrazložite zakaj.
 
 ## Dokumentacija
 
-Osnovna dokumentacija v `Octave` je komentar takoj za deklaracijo funkcije. Komentar se izpiše, če v konzoli napišemo
-`help funkcija`. Komentar naj vsebuje 
+Osnovna dokumentacija v `Octave` je komentar takoj pred deklaracijo funkcije. Če v konzoli napišemo `help funkcija`, se izpišejo vse zakomentirane vrstice pred vrstiso s ključno besedo `function`. Komentar naj vsebuje 
+
 * primer klica funkcije
 * kratek opis, kaj funkcija dejansko dela
 * opis vhodnih argumentov in vrednosti, ki jih funkcija vrne
-Imejte v mislih nekoga, ki bo za vami poganjal to funkcijo. V večini primerov boste to kar vi sami čez čas, ko boste že pozabili, kaj ste napisali. Ali si želite, da bo vaša oseba v prihodnosti, preklinjala svojo preteklo različico?
+
+Pri pisanju dokumentacije imejte v mislih nekoga, ki bo za vami uporabljal vašo funkcijo. V večini primerov boste to kar vi sami čez čas, ko boste že pozabili, kaj ste napisali. Ali si želite, da bo vaša oseba v prihodnosti, preklinjala svojo preteklo različico?
 
 Primer glave z dokumentacijo za funkcijo `presecisce`
 
@@ -53,18 +43,21 @@ Primer glave z dokumentacijo za funkcijo `presecisce`
 function T=presecisce(p,q)
 ````
 
-K dokumentaciji spada tudi kratek [Opis rešitve problema](Resitev.pdf) in [navodila za uporabo programa](#primer-uporabe-programa).
-
 ## Testi
-Teste je za matematične naloge super lahko pisati. Brez testov se bomo težko prepričali, da naš program dela pravilno. Pa še hrošče nam pomagajo poloviti, preden jih vidijo asistenti.
+Brez testov se bomo težko prepričali, da naš program dela pravilno. Pa še hrošče nam pomagajo poloviti, preden jih vidijo asistenti. Teste je za matematične naloge super lahko pisati. 
 
-V `octave` lahko teste dodamo kar v datoteko s funkcijo v obliki komentarja `%!` ponavadi na koncu datoteke. Za podrobnosti glej [GNU Octave: Test Functions](https://www.gnu.org/software/octave/doc/interpreter/Test-Functions.html).
+V `octave` lahko teste dodamo kar na konec datoteke s funkcijo. K testom spadajo vse vrstice, ki se začnejo s `%!`.  Za podrobnosti glej [GNU Octave: Test Functions](https://www.gnu.org/software/octave/doc/interpreter/Test-Functions.html).
 
 ```` octave
 % testi
+%!test presecisce([0,1,1],[1,0,1]) == -[1;1];
+% enakovredno
+%!assert (presecisce([0,1,1],[1,0,1]), -[1;1])
 
-%!assert (presecisce([0,1,1],[1,0,1]), -[1;1]) % presecisce y-1=0 in x-1=0 je točka T(1,1)
-%!assert (presecisce([2,1,1],[1,2,1]), -[1;1]/3, eps) % zaradi zaokroževanja, števila tipa float niso nikoli povsem enaka
+% zaradi zaokrožitvenih napak dve števili tipa float
+% skoraj nikoli nista enaki, zato moramo vrednosti primerjati z neko toleranco
+%!test abs(presecisce([2,1,1],[1,2,1])-(-[1;1]/3)) < eps;
+% lahko uporabimo tudi assert s tretjim argumentom
 %!assert (presecisce([1,2,1],[2,1,1]), -[1;1]/3, eps)
 
 % test na random podatkih
@@ -73,58 +66,16 @@ V `octave` lahko teste dodamo kar v datoteko s funkcijo v obliki komentarja `%!`
 %! T = presecisce(p,q);
 %! assert (abs(p*[T;1]), 0, eps) % T leži na p 
 %! assert (abs(q*[T;1]), 0, eps) % T leži na q
+
+% če sta premici vzporedni, pričakujemo napako
+%!error presecisce([1,1,1],[1,1,2]) 
 ````
 
-Teste poženemo z ukazom `test <ime_funkcije>`
+Teste poženemo z ukazom `test <ime_funkcije>`.
 
 ````
 >> test presecisce
 PASSES 5 out of 5 tests
 >>
 ````
-## Primer uporabe programa
 
-V datoteko s funkcijo `presecisce.m` lahko tudi vstavimo en ali več primerov uporabe, tako da uporabimo vrstico s komentarjem
-````
-%!demo
-````
-Uporabniku se primer izpiše, če uporabi ukaz `example <ime_funkcije>`. 
-````octave
-%!demo
-%! disp("Presečišče premice y = x+1 in y = -x-1")
-%! p = [-1 1 -1];
-%! q = [1 1 1];
-%! T = presecisce(p,q);
-%! printf("Presečišče je točka T(%d,%d)\n", T)
-%! x = T(1)+[-1,1];
-%! plot(x,x+1,x,-x-1)
-%! hold on
-%! plot(T(1),T(2),'o')
-%! # --------------------------------------------
-%! # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
-%! # ukazov disp ali printf za sporočila uporabniku
-```
-Kodo lahko tudi poženemo z ukazom `demo <ime_funkcije>`. Pri tem se izpiše celotna demo koda in vsi rezultati poleg tega se pa izriše še graf:
-
-````
->> demo presecisce
-presecisce example 1:
- p = [-1 1 -1];
- q = [1 1 1];
- T = presecisce(p,q)
- x = T(1)+[-1,1];
- plot(x,x+1,x,-x-1)
- hold on
- plot(T(1),T(2),'o')
- title("Presečišče premice y = x+1 in y = -x-1")
- hold off
- # --------------------------------------------
- # Spodnji komentar se vedno izpiše, zato ni treba uporabiti
- # ukazov disp ali printf za sporočila uporabniku
- # Točka T je presečišče: 
-
-T =
-
-  -1
-   0
-````

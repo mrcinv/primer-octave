@@ -17,7 +17,7 @@ Rešitev ni zgolj koda oziroma program, ki reši problem. Poleg kode ima vsak do
 Opis rešitve naj vsebuje matematične izpeljave in račune, ki so vas pripeljale do rešitve.
 Poleg tega navedite, katere algoritme ste uporabili in obrazložite zakaj. Lahko
 je natipkan v obliki datoteke README, ali pa čitljivo na roke napisan in
-poskeniran dokument ([primer rešitve](primer_resitve.pdf)).
+poskeniran dokument (primer rešitve [napisane na roke](primer_resitve.pdf) in v LaTeX-u ([tex](naloga.tex), [pdf](naloga.pdf)).
 
 ## Dokumentacija
 
